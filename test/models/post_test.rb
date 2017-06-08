@@ -7,4 +7,5 @@ class PostTest < ActiveSupport::TestCase
     assert_not post.valid?
     assert_equal [:title], post.errors.keys
   end
+  
 end
