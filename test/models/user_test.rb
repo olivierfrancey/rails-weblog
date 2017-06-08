@@ -15,11 +15,13 @@ class UserTest < ActiveSupport::TestCase
   
   test 'validates password too small' do
     user = User.new(password: '123456')
-    assert !user.valid?
+    assert_not user.valid?
+    assert_equal [:password], user.errors.keys
   end
   
   test 'validates password long enough' do
     user = User.new(password: '12345678')
     assert user.valid?
+    assert_equal [], user.errors.keys
   end
 end

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  
+  validates :password, length: { minimum: 7 }
 
   def display_name
     if admin?
